@@ -18,18 +18,6 @@
 \addtolength{\textwidth}{1in}%
 \addtolength{\textheight}{-.3in}%
 \addtolength{\topmargin}{-.8in}%
-
-
-
-
-
-
-
-
-
-
-
-
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
  \usepackage[english]{babel}
@@ -57,8 +45,6 @@
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \graphicspath {{./figure/}}
-
-
 \begin{document}
  
 % --------------------------------------------------------------
@@ -77,11 +63,11 @@ Phase I clinical trials, as first-in-human studies, primarily focus on safety pr
  We shall review and summarize all the studies that joinly consider toxicity and efficacy in dose finding. Gooley et al. involved themselves in this field in the early 1990s. They examined different trial designs with simulation based on an example from bone marrow transplantation [4]. Later, Thall, Simon, and Estey proposed a Bayesian approach for monitoring toxicity and efficacy outcomes jointly [5]. Thall and Russell presented a design strategy to find a dose that satisfying both toxicity and efficacy requirements in 1998[6]. After that, many researchers leaned their studies on an outstanding approach named the continual reassessment method (CRM). It was proposed by O'Quigley, Pepe, and Fisher in 1990[7], and gained a reputation for its simplicity and distinguished performance soon later. \\
 As a distinguished statistical method, the standard CRM has been extended in my different perspectives such as in dealing with overdose, delay response, model misspecification, and so on. As for collectively modeling toxicity and efficacy endpoints, it extends mainly in treating two different types of endpoints.\\
 The first extension of standard CRM treats toxicity and efficacy endpoints as bivariate binary endpoints. In this case, Thall and Cook [8] presented an adaptive Bayesian method for dose‐finding based on toxicity-efficacy trade‐offs. Yin, Li, and Ji[9] proposed a Bayesian design based on the odds ratio of toxicity and efficacy. Both of them have the favor of Bayesian. Some papers addressed a more complex case where toxicity endpoint is binary and efficacy is continuous. The papers considering these mixed endpoints include Bekele and Shen [10], Hirakawa[11] Yeung et al.[12] and more. But due to the complexity of models, their methods are hardly implemented in real clinical trials.\\
-The other extension of standard CRM deals with an ordinal trinary endpoint, which denotes as with dose increase as no dose-limiting toxicity (DLT) and no efficacy, no DLT but with efficacy, and severe DLT. O’Quigley et al [13] proposed a design about HIV study based on their CRM approach. Zhang et al.[2006][12] reported a novel design based on CRM, named TriCRM, to identify OBD specifically on proportional odds(PO) model and continuation ratio(CR) model. After that, Mandrekar et al.[2009][13] reviewed and commented on the previous studies with simulations and also pointed out some practical challenges in implementation.\\
-We develop our approach by incorporating optimal design theory into the standard CRM. Here, we shall review the optimal design studies that handle toxicity and efficacy endpoints collectively under some appropriated assumed models. As for the studies, Heise and Mayers[1996][14] were one of the first to construct locally D-optimal design for two correlated binary responses using the Gumbel model. Fan and Chaloner[2001][15] discussed the locally D-optimal design for CR model with ordinal trinary endpoint and in 2004 they studied C-optimal design and proposed Bayesian optimal designs under the same setting. Rabie and Flournoy [2004][16] studied both C-optimal and D-optimal for trinary outcomes using a more general contingent response. Dragalin and Fedorov[2006][17] proposed an adaptive procedure based on optimal design theory for dose-finding with a bivariate binary toxicity-efficacy endpoint under the Gumbel model and cox model. Some even complex case where outcomes mix discrete with continuous has been researched by many in finding locally D-optimal design including Coffey and Gennings[2007][18] and Fedorov, Wu and Zhang[2011][19], and more.\\
+The other extension of standard CRM deals with an ordinal trinary endpoint, which denotes as with dose increase as no dose-limiting toxicity (DLT) and no efficacy, no DLT but with efficacy, and severe DLT. O’Quigley et al [13] proposed a design about HIV study based on their CRM approach. Zhang et al.[14] reported a novel design based on CRM, named TriCRM, to identify OBD specifically on proportional odds(PO) model and continuation ratio(CR) model. After that, Mandrekar et al.[15] reviewed and commented on the previous studies with simulations and also pointed out some practical challenges in implementation.\\
+We develop our approach by incorporating optimal design theory into the standard CRM. Here, we shall review the optimal design studies that handle toxicity and efficacy endpoints collectively under some appropriated assumed models. As for the studies, Heise and Mayers[16] were one of the first to construct locally D-optimal design for two correlated binary responses using the Gumbel model. Fan and Chaloner[17] discussed the locally D-optimal design for CR model with ordinal trinary endpoint and in 2004[18] they studied C-optimal design and proposed Bayesian optimal designs under the same setting. Rabie and Flournoy [19] studied both C-optimal and D-optimal for trinary outcomes using a more general contingent response. Dragalin and Fedorov[20] proposed an adaptive procedure based on optimal design theory for dose-finding with a bivariate binary toxicity-efficacy endpoint under the Gumbel model and cox model. Some even complex case where outcomes mix discrete with continuous has been researched by many in finding locally D-optimal design including Coffey and Gennings[21] and Fedorov, Wu and Zhang [22], and more.\\
 \section{My Accomplishment}
-My thesis research focus on dose-finding issue when both toxicity and efficacy should be considered. I deal with ordinal trinary outcomes under CR model. My theoretical contribution is identifing OBDs according to the decision criterion proposed by Zhang et al.[12], and deriving locally C-optimal design in minimizing the variance of the found OBDs. I also developed an novel algorithm by incorporating optimal design theory into standard CRM. So for I have finished most of the theoretical proof and algorithm part. But I need to adjust my current algorithm to make it more efficient and compare it with other associated algorithms.\\
- The decision criterion I adopted is proposed by Zhang et al.[12]. It is a sequential criterion where the first step to be used to select a dose region, in which whose toxicity rate is upward bounded by a prespecified value, from the original dose space; then the OBD is the one maximized a toxicity-adjusted success rate provided next step among the selected dose region. The mathematical functions are
+My thesis research focus on dose-finding issue when both toxicity and efficacy should be considered. I deal with ordinal trinary outcomes under CR model. My theoretical contribution is identifing OBDs according to the decision criterion proposed by Zhang et al.[14], and deriving locally C-optimal design in minimizing the variance of the found OBDs. I also developed an novel algorithm by incorporating optimal design theory into standard CRM. So for I have finished most of the theoretical proof and algorithm part. But I need to adjust my current algorithm to make it more efficient and compare it with other associated algorithms.\\
+ The decision criterion I adopted is proposed by Zhang et al.[14]. It is a sequential criterion where the first step to be used to select a dose region, in which whose toxicity rate is upward bounded by a prespecified value, from the original dose space; then the OBD is the one maximized a toxicity-adjusted success rate provided next step among the selected dose region. The mathematical functions are
 \begin{equation}
 \begin{array}{rlr}
 \delta_1(x, \theta)&=I_{[\pi_2(x,\theta)<\pi^*]}& \mbox{(toxicity criterion)},\\
@@ -98,7 +84,7 @@ My thesis research focus on dose-finding issue when both toxicity and efficacy s
  My theoretical results consists of two parts according to the decision criterion given in (1). One is when the adjustable constant $\lambda=0$, and the other part is when $\lambda$ takes value in $[0,1]$. In first part, I have identified OBDs under the restriction given in (2) for both $\beta_1=\beta_2$ and $\beta_1 \neq \beta_2$. I also have derived optimal designs under some parameter restrictions. For the second part, I have identified OBD under the same restriction for $\beta_1=\beta_2$.  The following theorems show the completed results.\\
  \\
 \textbf{Algorithm Results}
-I have finished my OD-CRM algorithm. I incorporated optimal weight exchange algorithm(OWEA)[20] in each step of iteration of CRM approach to find optimal design for the current cohort of patient and utilize CRM to update unknown parameters. 
+I have finished my OD-CRM algorithm. I incorporated optimal weight exchange algorithm(OWEA)[23] in each step of iteration of CRM approach to find optimal design for the current cohort of patient and utilize CRM to update unknown parameters. 
 \subsection{OBDs Identification and Optimal Designs when $\lambda=0$}
 \begin{theorem}1
 \textbf{\textit{Under continuation ratio model, with the OBD decision criterion given in (1) and $\lambda =0$, with the restriction in (2) . When \boldsymbol{$\beta_1=\beta_2$},
@@ -139,9 +125,24 @@ Let \boldsymbol{$root= \frac{-e^{\alpha_1}e^{\alpha_2} \lambda + \sqrt{-e^{\alph
 \section{My current work}
 I'm performing simulation to do comparison between my algorithm and some relevant algorithms now. I will compare with the algorithm proposed in Zhang et al.[12] and standard CRM, and other CRM based algorithms.\\
 I'm also working on the theoretical part when $\lambda$ takes value in $[0,1]$ and $\beta_1 \neq \beta_2$. When $\beta_1 \neq \beta_2$, OBDs have no close form, so it is hardly to identify them. I decide to discuss them with typical examples based on dose-response curves. 
+\section{A Plan Scope of Thesis}
+My thesis will mainly include\\
+an introduction to the dose-finding issue I'm working on,\\
+our analytical results on optimal biological dose identification and optimal design derivation,\\
+detailed introduction on my novel algorithm OD-CRM,
+a large quantity of comparison with relevant algorithms by simulation ,
+and the conclusion.\\
 
-
-\small{\bibliographystyle{unsrt}
-\bibliography{sample.bib}\vspace{0.65in}}
-
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{sample}
+\newpage
+\section{Plan for degree completion}
+1. April 2020, finish the testing of my algorithm\\
+2. July 2020, finish the comparison with other relevant algorithms\\
+3. October 2020, finish all theoretical part when $\lambda$ takes value in $[0,1]$ and $\beta_1 \neq \beta_2$\\
+4. December 2020, finish the first manuscript of my thesis \\
+6. March 2020, defense\\
+7. April 2020, edit and revise the dissertation\\
+8. May 2020, complete\\
 \end{document}
